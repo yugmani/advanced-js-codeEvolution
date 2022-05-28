@@ -1,0 +1,59 @@
+<div id="app">
+  <h3>Scope in JavaScript</h3>
+  <ul>
+    <li>
+      <strong>Block Scope:</strong> Variables declared inside a pair of curly
+      braces cannot be accessed from outside the block.
+    </li>
+    <li>
+      <strong>Function Scope:</strong> Variables declared inside a function
+      cannot be accessed from outside the function.
+    </li>
+    <li>
+      <strong>Global Scope:</strong> Globally scoped variables can be accessed
+      inside a block or function.
+    </li>
+    <li><strong>Nested Function Scope ( Lexical Scope)</strong></li>
+    <li>
+      <strong>Closures:</strong> A closure is the combination of a function
+      bundled together with references to its surrounding state. Closures are
+      created every time a function is created, at function creation time.
+    </li>
+    <li>
+      In JavaScript, when we return a function from another function, we are
+      effectively returning a combination of the function definition along with
+      the function's scope. This would let the function definition have an
+      associated persistent memory which could hold on to live data between
+      executions. That combination of the function and its scope chain is what
+      is called a closure in JavaScript.
+    </li>
+    <li>
+      <h3>Function Currying</h3>
+      <ol>
+        <li>
+          <code>Currying</code> is a process in functional programming in which
+          we transform a function with multiple arguments into a sequence of
+          nesting functions that take one argument at a time.
+        </li>
+        <li>function f(a, b, c) is transfomred to f(a)(b)(c)</li>
+      </ol>
+    </li>
+    <li>
+    <h3><code><em>this</code></em></h3>
+    <ol>
+      <li>The JavaScript <code><em>'this'</em></code> keyword which is used in a function, refers to the object it belongs to. value.</li>
+      <li>It makes functions reusable by letting you decide the object.</li>
+      <li>The value of <code><em>this</em></code> is determined by how a function is called.</li>
+      <li>
+      <h4>How to determine 'this' ?</h4>
+      <ol style="list-style-type:lower-alpha">
+        <li>Implicit Binding</li>
+        <li>Explicit Binding</li>
+        <li>New Binding</li>
+        <li>Default Binding</li>
+      </ol>
+      </li>
+    </ol>
+    </li>
+  </ul>
+</div>
