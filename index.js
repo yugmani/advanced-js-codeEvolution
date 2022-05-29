@@ -106,3 +106,106 @@ sayMyName('Walter White');
 //My name is Walter White
 sayMyName('Heisenburg');
 // My name is Heisenburg
+
+//implicit binding
+// -----------------------------------------
+const person = {
+  name: 'Yoog',
+  sayName: function () {
+    console.log(`My name is ${this.name}`);
+  },
+};
+
+person.sayName();
+//My name is Yoog
+
+//Explicit binding
+// -----------------------------------------
+function sayNewName() {
+  console.log(`Your name is ${this.name}`);
+}
+
+//let's reference 'sayNewName()' function to previous 'person' object
+sayNewName.call(person);
+//Your name is Yoog
+
+// New binding
+// -----------------------------------------
+function User(name) {
+  //here this = {}
+  this.name = name;
+}
+
+const user1 = new User('Yoog');
+const user2 = new User('Viswash');
+
+console.log(user1.name); //Yoog
+console.log(user2.name); //Viswash
+
+//Default binding
+// -----------------------------------------
+
+function printName(name) {
+  console.log(`My Nick name is ${name}`);
+}
+
+printName();
+// My Nick name is undefined
+
+//if you are working in ***Node environment*** add following 'globalThis.name' assigned with 'Batman' before 'printName()' function. Here 'this' refers to the global variable 'name';
+// const name = "Batman";
+// globalThis.name = 'Batman';
+// function printName(name) {
+//   console.log(`My Nick name is ${this.name}`);
+// }
+// printName();
+//output: My Nick name is Batman
+
+// **************************************
+// ************* Prototype **************
+// **************************************
+
+function Admin(fName, lName) {
+  this.firstName = fName;
+  this.lastName = lName;
+}
+
+const admin1 = new Admin('Bruce', 'Wayne');
+const admin2 = new Admin('Clark', 'Kent');
+
+//a function specific to admin1.
+admin1.getFullName = function () {
+  return this.firstName + ' ' + this.lastName;
+};
+
+console.log(admin1.getFullName());
+//Bruce Wayne
+
+// console.log(admin2.getFullName());
+//Error: admin2.getFullName is not a function
+
+//lets create a prototype( a function not specific to any particular instance.)
+Admin.prototype.showFullName = function () {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+//Now this one can be used for every instances
+console.log(admin1.showFullName()); //Bruce Wayne
+console.log(admin2.showFullName()); //Clark Kent
+
+//inheritance
+function SuperHero(fName, lName) {
+  Admin.call(this, fName, lName);
+  this.isSuperHero = true;
+}
+
+SuperHero.prototype.fightCrime = function () {
+  console.log(`Fighting crime`);
+};
+
+SuperHero.prototype = Object.create(Admin.prototype);
+
+SuperHero.prototype.constructor = SuperHero;
+const batman = new SuperHero('John', 'Mehr');
+console.log(batman.showFullName());
+//John Mehr
