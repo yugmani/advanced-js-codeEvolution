@@ -63,9 +63,31 @@
     </ol>
     </li>
     <li>
-<h3>Class</h3>
-
+      <h3>Class</h3>
     </li>
-    <li>Iterables and Iterators - Why</li>
+    <li>
+      <h3>Iterables and Iterators - Why</h3>
+      <ol>
+        <li><strong>Iteration in JavaScript</strong></li>
+        <li><code>for...loops</code> : Problems</li>
+        <li>Difficulty in accessing the element.</li>
+        <li>Difficulty to manage iteration on the data for various types of data structures.</li>
+        <li><strong>Solution: </strong></li>
+        <li><code>for...of loops</code></li>
+        <li>There was a need to iterate over various data structures in a new way that abstracts away the complexity of accessing elements one by one and was at the same time uniform across the different data structures.</li>
+        <li>An object which implements the iterable protocol is called an iterable.</li>
+        <li>For an object to be an iterable it must implement a method at the key [Symbol.iterator].</li>
+        <li>That method should not accept any argument and should return an object which conforms to the iterator protocol.</li>
+        <li>The iterator protocol decides whether an object is an iterator.</li>
+        <li><p>The object must have a <code>next()</code> method that returns an object with two properties.</p>
+          <ol style="list-style-type: lower-alpha;">
+            <li>value: which gives the current element.</li>
+            <li>done: which is a boolean value indicating whether or not there are any more elements that could be iterated upon.</li>
+          </ol>        
+        </li>
+      </ol>
+
+
+      </li>
   </ul>
 </div>
