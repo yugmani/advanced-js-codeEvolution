@@ -209,3 +209,40 @@ SuperHero.prototype.constructor = SuperHero;
 const batman = new SuperHero('John', 'Mehr');
 console.log(batman.showFullName());
 //John Mehr
+
+// ******************************************************
+// ********************** Class *************************
+// ******************************************************
+
+class Manager {
+  constructor(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
+
+  sayMyName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+
+const manager1 = new Manager('Subash', 'Bhandari');
+console.log(manager1.sayMyName());
+// Subash Bhandari
+
+//inheriting properties and methods from previous(parent) class
+class MegaHero extends Manager {
+  constructor(fName, lName) {
+    super(fName, lName);
+    this.isSuperHero = true;
+  }
+
+  crimeDetect() {
+    console.log('Fighting crime!');
+  }
+}
+
+const hitman = new MegaHero('Eka', 'Sharma');
+
+//invoke method of parent class
+console.log(hitman.sayMyName());
+//Eka Sharma
